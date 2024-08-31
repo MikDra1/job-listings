@@ -18,22 +18,22 @@ function Job({ job, onSearch }) {
       <h3 className="job__position">{job.position}</h3>
 
       <div className="job__data">
-        <li>{job.postedAt}</li>&bull;
-        <li>{job.contract}</li>&bull;
-        <li>{job.location}</li>
+        <div>{job.postedAt}</div>&bull;
+        <div>{job.contract}</div>&bull;
+        <div>{job.location}</div>
       </div>
       </div>
       </div>
       </div>
 
       <div className="job__mustknow">
-        <li onClick={() => onSearch(job.role)}>{job.role}</li>
-        <li onClick={() => onSearch(job.level)}>{job.level}</li>
+        <div onClick={() => onSearch(job.role)}>{job.role}</div>
+        <div onClick={() => onSearch(job.level)}>{job.level}</div>
         {job.languages.map((language) => (
-          <li onClick={() => onSearch(language)} key={language}>{language}</li>
+          <div onClick={() => onSearch(language)} key={language}>{language}</div>
         ))}
         {job.tools.map((tool) => (
-          <li onClick={() => onSearch(tool)} key={tool}>{tool}</li>
+          <div onClick={() => onSearch(tool)} key={tool}>{tool}</div>
         ))}
       </div>
     </div>
