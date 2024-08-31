@@ -1,0 +1,302 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+    2. Remove default margin
+  */
+* {
+  margin: 0;
+}
+/*
+    Typographic tweaks!
+    3. Add accessible line-height
+    4. Improve text rendering
+  */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  background-color: hsl(180, 52%, 96%);
+  font-family: "League Spartan", sans-serif;
+  overflow-x: hidden;
+}
+/*
+    5. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+    6. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+    7. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+    8. Create a root stacking context
+  */
+#root,
+#__next {
+  isolation: isolate;
+}
+
+:root {
+  --Desaturated-Dark-Cyan: hsl(180, 29%, 50%);
+
+  /* --Light-Grayish-Cyan : hsl(180, 52%, 96%); */
+  --Light-Grayish-Cyan: hsl(180, 31%, 95%);
+  --Dark-Grayish-Cyan: hsl(180, 8%, 52%);
+  --Very-Dark-Grayish-Cyan: hsl(180, 14%, 20%);
+}
+
+.container {
+}
+
+.bg__image {
+  height: 20vh;
+  width: 100%;
+  background-image: url(../public/images/bg-header-desktop.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: var(--Desaturated-Dark-Cyan);
+}
+
+.bg__image--mobile {
+  background-image: url(../public/images/bg-header-mobile.svg);
+}
+
+.jobs {
+  width: 90%;
+  display: grid;
+  gap: 3rem;
+
+  margin-block: 3rem;
+  margin-inline: auto;
+}
+
+.job {
+  background-color: white;
+  box-shadow: 0.15rem 0.15rem 1rem rgba(0, 0, 0, 0.15);
+  border-radius: 0.5rem;
+  padding: 2.5rem 1rem 1rem 1rem;
+  position: relative;
+  width: 100%;
+  animation: fadeIn 2s;
+  margin-inline: auto;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.job--featured::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 5px;
+  height: 100%;
+  border-radius: 0.5rem 0 0 0.5rem;
+  background-color: var(--Desaturated-Dark-Cyan);
+}
+
+.job__data {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+  color: var(--Dark-Grayish-Cyan);
+}
+
+.job__img {
+  position: absolute;
+  top: -2rem;
+  width: 4rem;
+  left: 1.5rem;
+}
+
+.job__mustknow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  width: 100%;
+  margin-top: 1rem;
+  border-top: 1px solid #eceeed;
+  padding-top: 1rem;
+}
+
+.job__mustknow li {
+  background-color: var(--Light-Grayish-Cyan);
+  color: var(--Desaturated-Dark-Cyan);
+  padding-inline: 0.5rem;
+  padding-block: 0.3rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.job__mustknow li:hover {
+  background-color: var(--Desaturated-Dark-Cyan);
+  color: white;
+}
+
+.job__top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.job__top span {
+  padding: 0.25rem 0.75rem 0.1rem 0.75rem;
+  color: white;
+  border-radius: 100vw;
+  font-weight: 700;
+}
+
+.job__top--new {
+  background-color: var(--Desaturated-Dark-Cyan);
+}
+
+.job__top--featured {
+  background-color: var(--Very-Dark-Grayish-Cyan);
+}
+
+.job__company {
+  color: var(--Desaturated-Dark-Cyan);
+  font-size: 1.2rem;
+}
+
+.job__position {
+  transition: all 0.3s;
+}
+
+.job__position:hover {
+  color: var(--Desaturated-Dark-Cyan);
+  cursor: pointer;
+}
+
+.filters {
+  display: flex;
+  gap: 1rem;
+  background-color: #fff;
+  padding: 1.5rem;
+  width: 90%;
+  margin-inline: auto;
+  max-width: 60rem;
+  transform: translateY(-50%);
+  box-shadow: 0.15rem 0.15rem 1rem rgba(0, 0, 0, 0.15);
+  border-radius: 0.5rem;
+}
+
+.filters__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.filter {
+  background-color: var(--Light-Grayish-Cyan);
+  color: var(--Desaturated-Dark-Cyan);
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  padding-left: 0.5rem;
+  border-radius: 0.3rem 0 0 0.3rem;
+  font-weight: 500;
+}
+
+.filter__delete {
+  background-color: var(--Desaturated-Dark-Cyan);
+  color: white;
+  padding: 0.5rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 0 0.3rem 0.3rem 0;
+  transition: all 0.3s;
+}
+
+.filter__delete:hover {
+  background-color: var(--Very-Dark-Grayish-Cyan);
+}
+
+.btn--clear {
+  background: none;
+  border: none;
+  margin-left: auto;
+  cursor: pointer;
+  color: var(--Desaturated-Dark-Cyan);
+}
+
+.btn--clear:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 850px) {
+  .job__img {
+    position: static;
+  }
+
+  .job__left__side {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .job {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    max-width: 60rem;
+    min-width: 50rem;
+  }
+
+  .job__mustknow {
+    width: auto;
+  }
+  .jobs {
+    gap: 1.5rem;
+  }
+  .job__top {
+    margin-bottom: 0.3rem;
+  }
+  .job__mustknow {
+    border-top: none;
+    padding-top: 0;
+  }
+}
