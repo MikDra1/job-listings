@@ -157,7 +157,7 @@ h6 {
   padding-top: 1rem;
 }
 
-.job__mustknow li {
+.job__mustknow div {
   background-color: var(--Light-Grayish-Cyan);
   color: var(--Desaturated-Dark-Cyan);
   padding-inline: 0.5rem;
@@ -167,7 +167,7 @@ h6 {
   transition: all 0.3s;
 }
 
-.job__mustknow li:hover {
+.job__mustknow div:hover {
   background-color: var(--Desaturated-Dark-Cyan);
   color: white;
 }
